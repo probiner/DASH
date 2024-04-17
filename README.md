@@ -1,5 +1,5 @@
 # DASH
-![Logo](https://i.imgur.com/8HaMipK.png)
+![Logo](https://i.imgur.com/gH3wFkx.png)
 ## Granular utilities for SideFX Houdini.
 
 DASH is a package for SideFX Houdini that proposes small quality of life improvements, standards and workflows through the delivery of nodes, scripts or settings.
@@ -13,7 +13,7 @@ In general included nodes will:
 ![Help](https://i.imgur.com/RQcBVbB.png)
 - Have a demo HDA that can be access at the bottom of their help.
 ![Demo](https://i.imgur.com/yePt5ai.png)
-![Demo](https://i.imgur.com/U2jQ1WI.gif)
+<video src="https://github.com/probiner/DASH/assets/1182548/6fb5d5e3-f8dd-439a-8cd5-6d8f8b2c9f97" autoplay="true"/>
 - Be blackboxed. Can't be opened or edited. (There are some side effects to this in VOPs, like error on RMB. RFE'd, as well as making reporting harder)
 
 #### Firt Release
