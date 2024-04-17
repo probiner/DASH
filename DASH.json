@@ -1,0 +1,10 @@
+{
+	"env": [
+                {
+                    "DASH": "C:/path/to/DASH"
+                }
+	],
+	"path": [
+        "$DASH"
+    ]
+}

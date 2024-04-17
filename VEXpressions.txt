@@ -1,0 +1,5 @@
+attribwrangle/snippet
+    [DASH] Random color
+    float hue = random_brj(0, @elemnum) ;
+    vector color = hsvtorgb(set(hue, 1, 1)) ;
+    @Cd = color ;

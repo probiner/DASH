@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="DASH-utils" label="DASH - - - Utils">
+    <memberTool name="DASH-delete"/>
+    <memberTool name="DASH-attibwrangle_color"/>
+  </toolshelf>
+
+  <tool name="DASH-delete" label="Delete Parm Channels" icon="BUTTONS_clear">
+    <helpText><![CDATA[= Delete Parm Channels = 
+
+""" Delete parameters animation and expressions on selected nodes. """
+
+Select Nodes and run this to delete their expessions and animation channels.
+
+If you pass the argument __`revert_defaults`__ set to `1`, it will also revert the parameters to defaults. The reason this option is off by default its because its' something one can already do in the pameteres tem menu with _Revert to Factory Defaults_.]]></helpText>
+    <script scriptType="python"><![CDATA[import importlib
+from DASH_hom import DASH_nodeutils as tool
+importlib.reload(tool)
+
+tool.delete_parm_channels()
+# revert_defaults: 1. Also reverts parameters to default values.
+
+]]></script>
+  </tool>
+
+  <tool name="DASH-attibwrangle_color" label="Color SOP Wrangles" icon="SOP_attribwrangle">
+    <helpText><![CDATA[= Color SOP Wrangles = 
+
+""" Automatically color SOP wrangles according to their class. """
+
+Select Attrib Wrangles SOP and select this to change their color automatically according to class. If no node is selected it will try to color all attrib wrangle SOPS.
+
+__`keep_color`__ is set to _1_ by default, meaning, the node color will only be changed if the node is using .8 white or the Houdini default color.]]></helpText>
+    <script scriptType="python"><![CDATA[import importlib
+from DASH_hom import DASH_nodeutils as tool
+importlib.reload(tool)
+
+tool.attwrangle_color()
+#sel: hou.selectedNodes()
+#colors: [(.55, .45, .3), (.765, 1, .576), (0.48, 0.75, 1), (0.75, 0.55, 0.95), (0.354, 0.304, 0.354)]
+#rainbow: 0
+#keepcolor: 1
+#comment:0
+
+# COLOR ATTRIBUTE WRANGLES AUTOMATICALLY BY CLASS]]></script>
+  </tool>
+</shelfDocument>
