@@ -22,6 +22,7 @@ In general included nodes will:
 - 7 x VOPs (in `DASH_all_nodes.hip`)
 - 1 x Desktop, `DASH_SingleMonitorBuild`
 - 1 x Shelf with 2 scripts. `Color SOP Wrangles` and `Delete Parm Channels`
+- 1 x VEXpression to automatically color elements with rainbow Hue. Instead of Color SOP Random.
 
 First release is small and a revamp of assets I've first published on Orbolt. Its also representative of the type of nodes and principles that will be strived for in further releases:
 - Small granular nodes that can be reused in many setups. Not full setup monolithic nodes.
@@ -31,7 +32,7 @@ First release is small and a revamp of assets I've first published on Orbolt. It
 - Description messages for quicker overview awareness of the node operation in the node network.
 
 ## Installation
-1) Place the DASH folder in a directory where you place other Houdini packages, e.g. `C:\users\user01\Documents\MyHoudiniPackages\Dash`
+1) Extract the repo contents into a `DASH` folder. Place it in a directory where you place other Houdini packages, e.g. `C:\users\user01\Documents\MyHoudiniPackages\Dash`
 2) Place the contained DASH.json in the Houdini user directory, inside packages directory, e.g, `C:\users\user01\Documents\houdini20.0\packages\DASH.json`
 3) Edit the `DASH` variable to point to package directory. Windows users will be forced here to use forward slashes. E.g. `"DASH": "C:/users/user01/Documents/MyHoudiniPackages/Dash"`. Save.
 4) All done. Launch Houdini and the nodes, desktop and toolbar should now be ready to use.
@@ -43,7 +44,7 @@ To feedback this project you can use [github issues](https://github.com/probiner
 #### Final Notes
 "Whenever you show me your nodes I shrug because I have no idea why I would use them. Then, 6 months later I need them. - Russian friend.
 
-Kudos to some elements of the community for all the help over the years in SideFX forums, ODforce forums, Think Procedural Discord, and also work colleagues. Many little things here were bettered by those interactions.
+Kudos to some elements of the community for all the help over the years in SideFX forums, ODforce forums, Think Procedural Discord, and also work colleagues and students. Many little things here were bettered by those interactions.
 
 Thank you to the testers and motivators :D
 
