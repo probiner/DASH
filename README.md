@@ -1,5 +1,5 @@
 # DASH
-![Logo](https://i.imgur.com/gH3wFkx.png)
+![Logo](https://i.imgur.com/TF40m1F.png)
 ## Granular utilities for SideFX Houdini.
 
 DASH is a package for SideFX Houdini that proposes small quality of life improvements, standards and workflows through the delivery of nodes, scripts or settings.
@@ -24,7 +24,7 @@ In general included nodes will:
 - 1 x Shelf with 2 scripts. `Color SOP Wrangles` and `Delete Parm Channels`
 - 1 x VEXpression to automatically color elements with rainbow Hue. Instead of Color SOP Random.
 
-First release is small and a revamp of assets I've first published on Orbolt. Its also representative of the type of nodes and principles that will be strived for in further releases:
+First release is small and a revamp of assets I've first published on [Orbolt](https://www.orbolt.com/user/113870942). Its also representative of the type of nodes and principles that will be strived for in further releases:
 - Small granular nodes that can be reused in many setups. Not full setup monolithic nodes.
 - More VOPs than SOPs because the latter is a very targeted context (Many SOP nodes I created over the years intersect a lot with the shipped nodes, now).
 - VOPs with array signatures to reduce the constant need to use for loop to deal with arrays.
