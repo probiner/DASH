@@ -11,10 +11,10 @@ The overarching goal will be to aid creative ideation by identifying granular ro
 In general included nodes will:
 - Have a detailed help wiki.
 ![Help](https://i.imgur.com/RQcBVbB.png)
-- Have a demo HDA that can be access at the bottom of their help.
+- Have a demo HDA that can be launched at the bottom of the respective help wiki.
 ![Demo](https://i.imgur.com/yePt5ai.png)
 <video src="https://github.com/probiner/DASH/assets/1182548/6fb5d5e3-f8dd-439a-8cd5-6d8f8b2c9f97" autoplay="true"/><br/>
-- Be blackboxed. Can't be opened or edited. (There are some side effects to this in VOPs, like error on RMB. RFE'd, as well as making reporting harder)
+- Be blackboxed, i.e. can't be opened or edited. (VOP RMB error bug RFE'd)
 
 #### Firt Release
 
@@ -22,7 +22,7 @@ In general included nodes will:
 - 7 x VOPs (in `DASH_all_nodes.hip`)
 - 1 x Desktop, `DASH_SingleMonitorBuild`
 - 1 x Shelf with 2 scripts. `Color SOP Wrangles` and `Delete Parm Channels`
-- 1 x VEXpression to automatically color elements with rainbow Hue. Instead of Color SOP Random.
+- 1 x VEXpression to automatically color elements with rainbow Hue (Instead of Color SOP Random method).
 
 First release is small and a revamp of assets I've first published on [Orbolt](https://www.orbolt.com/user/113870942). Its also representative of the type of nodes and principles that will be strived for in further releases:
 - Small granular nodes that can be reused in many setups. Not full setup monolithic nodes.
