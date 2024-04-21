@@ -2,6 +2,8 @@
 ![Logo](https://i.imgur.com/TF40m1F.png)
 ## Granular utilities for SideFX Houdini.
 
+Lorem ipsum in dolor sedet.
+
 DASH is a package for SideFX Houdini that proposes small quality of life improvements, standards and workflows through the delivery of nodes, scripts or settings.
 
 ## Characteristics
