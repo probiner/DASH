@@ -1,3 +1,5 @@
 *.pyc
 **/backup/
 **/__pycache__/
+**/.sync/
+/sync.ffs_db
