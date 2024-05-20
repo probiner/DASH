@@ -13,7 +13,7 @@ The overarching goal will be to aid creative ideation by identifying granular ro
 - Menus with rich info and callback scripts that speed up the set up based on it.
 - Description messages for simple overview awareness of the operation in the node network.
 
-### Nodes 
+### Nodes
 In general included nodes will:
 - Have a detailed help wiki.<br/>
     ![Help](https://i.imgur.com/RQcBVbB.png)
@@ -24,10 +24,10 @@ In general included nodes will:
 - Be found under the submenu `DASH - - -`
 
 ## Installation
-1) Extract the folder in the zip and rename it to `DASH` and place it in a directory where you place other Houdini packages, e.g. `C:\users\user01\Documents\MyHoudiniPackages\DASH`
-2) Place the contained DASH.json in the Houdini user directory, inside packages directory, e.g, `C:\users\user01\Documents\houdini20.0\packages\DASH.json`
-3) In the JSON, edit the `DASH` variable to point to package directory. Windows users will be forced here to use forward slashes. E.g. `"DASH": "C:/users/user01/Documents/MyHoudiniPackages/DASH"`. Save.
-4) All done. Launch Houdini and the nodes, desktop and toolbar should now be ready to use.
+1) Extract the folder in the zip and rename it to `DASH` and place it in a directory where you place other Houdini packages. E.g. `C:\users\user01\Documents\MyHoudiniPackages\DASH`
+2) Place the contained `DASH.json` in the Houdini user directory, inside packages directory. E.g. `C:\users\user01\Documents\houdini20.0\packages\DASH.json`
+3) In the JSON file, edit the `DASH` variable to point to the package directory. Note to Windows users, you'll have to use forward slashes here. E.g. `"DASH": "C:/users/user01/Documents/MyHoudiniPackages/DASH"`. Save.
+4) All done! Launch Houdini and the nodes, desktop and toolbar should now be ready to use.
 
 ## Feedback
 To feedback this project you can use [github issues](https://github.com/probiner/DASH/issues), [instant messaging](https://discord.gg/URutVd4us7), or reach out on [Twitter](https://twitter.com/probiner)
