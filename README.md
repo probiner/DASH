@@ -4,8 +4,8 @@
 
 DASH is a package for SideFX Houdini that proposes small quality of life improvements, standards and workflows through the delivery of nodes, scripts or settings.
 
-## Introduction. Design decisions.
-[![VIDEO](https://i.imgur.com/dogbeG6.png)](https://youtu.be/I1n2JEWlyNc)
+## Introduction video. Design decisions.
+[![VIDEO](https://i.imgur.com/jmwDYDT.png)](https://youtu.be/I1n2JEWlyNc)
 
 ## Characteristics
 The overarching goal will be to aid creative ideation by identifying granular routines and package them into reusable resources that can just be invoked even if temporarily, like shoring or prefab in civil construction. Therefore, flexibility, extra information and user speed are prioritized over code optimization and scalability.
