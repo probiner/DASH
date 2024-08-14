@@ -8,7 +8,7 @@ def default_hda_color(node):
     color = hou.Color((1, .9, .8)) #peachy yellow
     node.setColor(color)
 
-def attwrangle_color(sel=None, colors=None, rainbow=None, keep_color=None, comment=None):
+def vopvex_color(sel=None, colors=None, rainbow=None, keep_color=None, comment=None, vops=None, wrangles=None):
     """
     Change color of attribute wrangle SOPs according to the Run class. 'colors':list of vector RGB. 'rainbow', 'keep_color', 'comment': boolean.
     """
@@ -19,11 +19,14 @@ def attwrangle_color(sel=None, colors=None, rainbow=None, keep_color=None, comme
     rainbow = arg_default(rainbow, False)
     keep_color = arg_default(keep_color, True)
     comment = arg_default(comment, False)
+    vops = arg_default(vops, True)
+    wrangles = arg_default(wrangles, True)
+
 
     if comment is None:
         comment = 0    
     for node in sel:        
-        if isinstance(node, hou.SopNode) and node.type().name() == "attribwrangle" :            
+        if isinstance(node, hou.SopNode) and node.type().name() == "attribwrangle" and wrangles :            
             runon = node.parm("class").eval()            
             if node.isEditableInsideLockedHDA() :
                 if ((node.color() == hou.Color((.8, .8, .8)) or node.color() == hou.Color((.839, .839, .839)) ) if keep_color else 1) :
@@ -44,6 +47,17 @@ def attwrangle_color(sel=None, colors=None, rainbow=None, keep_color=None, comme
                             comment = comment if comment == "" else comment + "\n" 
                             node.setComment(comment + firstline)
                             node.setGenericFlag(hou.nodeFlag.DisplayComment,True)
+
+        if isinstance(node, hou.SopNode) and node.type().name() == "attribvop" and vops :            
+            runon = node.parm("bindclass").eval()            
+            if node.isEditableInsideLockedHDA() :
+                if ((node.color() == hou.Color((.8, .8, .8)) or node.color() == hou.Color((.839, .839, .839)) ) if keep_color else 1) :
+                    if rainbow:    
+                        color = hou.Color((0,1,1))
+                        color.setHSV((runon/5.0*290+0,.6,.9))
+                    else:                    
+                        color = hou.Color(colors[runon])
+                    node.setColor(color)
 
 def delete_parm_channels(sel=None, defaults=None):
     """
