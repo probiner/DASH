@@ -33,7 +33,7 @@ In general included nodes will:
 4) All done! Launch Houdini and the nodes, desktop and toolbar should now be ready to use.
 
 ## Feedback
-To feedback this project you can use [github issues](https://github.com/probiner/DASH/issues), [instant messaging](https://discord.gg/URutVd4us7), or reach out on [Twitter](https://twitter.com/probiner)
+To feedback this project you can use [github issues](https://github.com/probiner/DASH/issues), [instant messaging](https://discord.gg/tBfZxDFesT), or reach out on [Twitter](https://twitter.com/probiner)
 
 ---
 #### Final Notes
