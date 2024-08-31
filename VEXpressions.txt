@@ -4,3 +4,52 @@ attribwrangle/snippet
     vector color = hsvtorgb(set(hue, 1, 1)) ;
     @Cd = color ;
 
+
+array_quicksort/vexpression
+    [STRING] Natural Sorting 
+    function string naturalkey(string s; int padding){
+        string format = "%0" + itoa(padding) + "d" ;
+        string parts[] = re_findall("[^0-9]+|[0-9]+", s) ;
+        foreach(int i; string part; parts){
+            if(isdigit(part)) parts[i] = sprintf(format, part) ;
+        }
+        return join(parts, "") ;
+    }
+    function int largestdigit(string s){
+        int max = 0 ;
+        string nums[] = re_findall("[0-9]+", s) ;
+        foreach(string num; nums) max = max(max, len(num)) ;    
+        return max ;
+    }
+    int padding = max(largestdigit(va), largestdigit(vb)) ;
+    less = naturalkey(va, padding) < naturalkey(vb, padding) ;
+
+array_quicksort/vexpression
+    [VECTOR] Distance to grid size of 3.0
+    vector unit = 3.0 ;
+
+    vector Pa = va % unit ;
+    Pa -= unit / 2 ;
+    
+    vector Pb = vb % unit ;
+    Pb -= unit / 2 ;
+    
+    less = length2(Pa) < length(Pb) ;
+
+array_values_occurrence/vexpression
+    First and last value occurrences
+    valid = occurrence == 0 || occurrence == (count-1) ;
+
+array_values_occurrence/vexpression
+    First two occuring values and duplicates.
+    valid = group < 2 ;
+
+
+array_filter_vex/vexpression
+    [GENERIC] 50% chance of keeping the value
+    valid = random_brj(0, i) > .5 ;
+
+array_filter_vex/vexpression
+    [FLOAT] Stop after a value above 21.0
+    valid = 1 ;
+    poststop = value > 21.0 ;
