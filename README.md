@@ -37,6 +37,6 @@ To feedback this project you can use [github issues](https://github.com/probiner
 
 ---
 #### Final Notes
-"Whenever you show me your nodes I shrug because I have no idea why would I use them. Then, 6 months later I need them. - Russian friend.
+"Whenever you show me your nodes I shrug because I have no idea why would I use them. Then, 6 months later I need them." - Russian friend.
 
 Kudos to some elements of the community for all the help over the years at SideFX forums, ODforce forums, Think Procedural discord, and also work colleagues and students. Many little things here were bettered by those interactions. Thank you to the testers and motivators too :D
