@@ -5,7 +5,7 @@
  Note, that two definitions of the same element are not allowed in
  a single file. -->
 
-  <toolshelf name="DASH-utils" label="DASH - - - Utils">
+  <toolshelf name="DASH-utils" label="DASH â Utils">
     <memberTool name="DASH-delete"/>
     <memberTool name="DASH-vopvex_color"/>
     <memberTool name="notes_clipboard_io"/>
