@@ -24,7 +24,7 @@ In general included nodes will:
     ![Demo](https://i.imgur.com/yePt5ai.png)
     <video src="https://github.com/probiner/DASH/assets/1182548/6fb5d5e3-f8dd-439a-8cd5-6d8f8b2c9f97" autoplay="true"/><br/>
 - Be blackboxed, i.e. can't be opened or edited. (VOP RMB error bug RFE'd)
-- Be found under the submenu `DASH - - -`
+- Be found under the submenu `DASH —` and include `DASH` in the name.
 
 ## Installation
 1) Extract the folder in the zip and rename it to `DASH` and place it in a directory where you place other Houdini packages. E.g. `C:\users\user01\Documents\MyHoudiniPackages\DASH`
