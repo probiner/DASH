@@ -5,14 +5,15 @@ attribwrangle/snippet
     @Cd = color ;
 
 attribwrangle/snippet
-    [DASH] Sweep - Group profiles & sides
+    [DASH] Sweep - Group rows & columns
+    // RUN ON PRIMITIVES
     int primpts[] = primpoints(0, @primnum) ;
 
-    setedgegroup(0, "profiles", primpts[0],primpts[1],1) ;
-    setedgegroup(0, "profiles", primpts[2],primpts[3],1) ;
+    setedgegroup(0, "rows", primpts[0], primpts[1], 1) ;
+    setedgegroup(0, "rows", primpts[2], primpts[3], 1) ;
 
-    setedgegroup(0, "sides", primpts[1],primpts[2],1) ;
-    setedgegroup(0, "sides", primpts[3],primpts[0],1) ;
+    setedgegroup(0, "columns", primpts[1], primpts[2], 1) ;
+    setedgegroup(0, "columns", primpts[3], primpts[0], 1) ;
 
 array_quicksort/vexpression
     [STRING] Natural Sorting 
