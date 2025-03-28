@@ -24,13 +24,19 @@ In general included nodes will:
     ![Demo](https://i.imgur.com/yePt5ai.png)
     <video src="https://github.com/probiner/DASH/assets/1182548/6fb5d5e3-f8dd-439a-8cd5-6d8f8b2c9f97" autoplay="true"/><br/>
 - Be blackboxed, i.e. can't be opened or edited. (VOP RMB error bug RFE'd)
-- Be found under the submenu `DASH —` and include `DASH` in the name.
+- Be found under the submenu `DASH —` and include in their label the suffix `- DASH`.
 
 ## Installation
-1) Extract the folder in the zip and rename it to `DASH` and place it in a directory where you place other Houdini packages. E.g. `C:\users\user01\Documents\MyHoudiniPackages\DASH`
-2) Place the contained `DASH.json` in the Houdini user directory, inside packages directory. E.g. `C:\users\user01\Documents\houdini20.0\packages\DASH.json`
-3) In the JSON file, edit the `DASH` variable to point to the package directory. Note to Windows users, you'll have to use forward slashes here. E.g. `"DASH": "C:/users/user01/Documents/MyHoudiniPackages/DASH"`. Save.
-4) All done! Launch Houdini and the nodes, desktop and toolbar should now be ready to use.
+1) Extract the folder in the zip and rename it to `DASH` and place it in a directory where you place other Houdini packages. E.g. for Windows: `C:\users\probiner\Documents\MyHoudiniPackages\DASH`
+
+2) Place the contained `DASH.json` in the `packages` folder of your desired houdinipath, usually in Houdini's user preferences directory, $HOME. E.g.
+     Win: `C:\users\{username}\Documents\houdini{version}\packages\DASH.json`
+     Linux: `/home/{username}/houdini{version}/packages/DASH.json`
+     Mac: `/Users/{username}/Library/Preferences/houdini/{version}/packages/DASH.json`
+
+     
+4) In the JSON file, edit the `DASH` variable to point to the package directory. Note to Windows users, you'll have to use forward slashes here. E.g. `"DASH": "C:/users/probiner/Documents/MyHoudiniPackages/DASH"`. Save the json.
+5) All done! Launch Houdini and now, the nodes, desktop and toolbar should be ready to use!
 
 ## Feedback
 To feedback this project you can use [github issues](https://github.com/probiner/DASH/issues), [instant messaging](https://discord.gg/tBfZxDFesT), or reach out on [Twitter](https://twitter.com/probiner)
