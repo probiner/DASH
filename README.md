@@ -30,10 +30,9 @@ In general included nodes will:
 1) Extract the folder in the zip and rename it to `DASH` and place it in a directory where you place other Houdini packages. E.g. for Windows: `C:\users\probiner\Documents\MyHoudiniPackages\DASH`
 
 2) Place the contained `DASH.json` in the `packages` folder of your desired houdinipath, usually in Houdini's user preferences directory, $HOME. E.g.
-     Win: `C:\users\{username}\Documents\houdini{version}\packages\DASH.json`
-     Linux: `/home/{username}/houdini{version}/packages/DASH.json`
-     Mac: `/Users/{username}/Library/Preferences/houdini/{version}/packages/DASH.json`
-
+    - Win: `C:\users\{username}\Documents\houdini{version}\packages\DASH.json`
+    - Linux: `/home/{username}/houdini{version}/packages/DASH.json`
+    - Mac: `/Users/{username}/Library/Preferences/houdini/{version}/packages/DASH.json`
      
 4) In the JSON file, edit the `DASH` variable to point to the package directory. Note to Windows users, you'll have to use forward slashes here. E.g. `"DASH": "C:/users/probiner/Documents/MyHoudiniPackages/DASH"`. Save the json.
 5) All done! Launch Houdini and now, the nodes, desktop and toolbar should be ready to use!
