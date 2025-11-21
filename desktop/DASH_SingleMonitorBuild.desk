@@ -8,43 +8,43 @@ radial menu set curvesop
 root {
     split 0.118462 H L {
         tabs 0 1 {
-            pane panetab14 -a 0 -l 10 -H /obj/ -T OBJ -m treecontrol
+            pane panetab14 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m treecontrol
         }
         split 0.713558 H {
-            split 0.27687 V {
-                split 0.687326 H {
+            split 0.221447 V {
+                split 0.663372 H {
                     tabs 0 1 {
-                        pane panetab1 -a 0 -l 10 -H /obj/ -T OBJ -m sceneview
-                        pane panetab2 -a 0 -l 10 -H /obj/ -T OBJ -m chaneditor
-                        pane panetab3 -a 0 -l 10 -H /obj/ -T OBJ -m iprviewer
+                        pane panetab1 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m sceneview
+                        pane panetab2 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m chaneditor
+                        pane panetab3 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m iprviewer
                         pane panetab4 -a 0 -l 10 -H /img/ -T IMG -m imageview
                         pane panetab13 -a 0 -l 10 -H /ch/ -T CHOPNET -m channelview
-                        pane panetab11 -a 0 -l 10 -H /obj/ -T OBJ -m details
+                        pane panetab11 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m details
                     }
                     split 0.5 V R {
                         tabs 0 1 {
-                            pane panetab7 -a 0 -l 10 -H /obj/ -T OBJ -m parmeditor
+                            pane panetab7 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m parmeditor
                             pane panetab16 -a 0 -l 0 -H /obj/ -T OBJ -m perfmon
                         }
                         tabs 0 1 {
-                            pane panetab20 -a 0 -l 10 -H /obj/ -T OBJ -m parmeditor
+                            pane panetab20 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m parmeditor
                         }
                     }
                 }
                 split 0.5 H R {
-                    tabs 2 1 {
-                        pane panetab6 -a 0 -l 10 -H /obj/ -T OBJ -m details
+                    tabs 0 1 {
+                        pane panetab6 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m details
                         pane panetab19 -a 0 -l 0 -H /obj/ -T OBJ -m python
                         pane panetab12 -a 0 -l 0 -H /obj/ -T OBJ -m chaneditor
                         pane panetab15 -a 0 -l 10 -H /ch/ -T CHOPNET -m channelview
                         pane panetab18 -a 0 -l 10 -H /out/ -T ROP -m renderview
-                        pane panetab26 -a 1 -l 10 -H /obj/ -T OBJ -m pythonpanel
-                        pane panetab27 -a 0 -l 10 -H /obj/ -T OBJ -m apexeditor
-                        pane panetab28 -a 0 -l 10 -H /obj/ -T OBJ -m neteditor
+                        pane panetab26 -a 1 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m pythonpanel
+                        pane panetab27 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m apexeditor
+                        pane panetab28 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m neteditor
                     }
                     tabs 3 1 {
                         pane panetab9 -a 0 -l 0 -H /obj/ -T OBJ -m python
-                        pane panetab8 -a 1 -l 10 -H /obj/ -T OBJ -m textport
+                        pane panetab8 -a 1 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m textport
                         pane panetab10 -a 0 -l 0 -H /obj/ -T OBJ -m perfmon
                         pane panetab17 -a 0 -l 10 -H /out/ -T ROP -m renderview
                     }
@@ -53,11 +53,11 @@ root {
             split 0.5 H R {
                 split 0.585555 V L {
                     tabs 0 1 {
-                        pane panetab5 -a 0 -l 10 -H /obj/ -T OBJ -m details
+                        pane panetab5 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m details
                     }
                     tabs 0 1 {
-                        pane panetab23 -a 0 -l 0 -H /obj/ -T OBJ -m neteditor
-                        pane panetab29 -a 0 -l 10 -H /obj/ -T OBJ -m details
+                        pane panetab23 -a 0 -l 0 -H /obj/float_manipulation_demo1/ -T SOP -m neteditor
+                        pane panetab29 -a 0 -l 10 -H /obj/float_manipulation_demo1/ -T SOP -m details
                     }
                 }
                 split 0.5 V {
@@ -95,8 +95,8 @@ scenegraphtree -S 0.25 -m 2 -p "/collections /lights" -c  -i  -o  -x 1 -s 1 -M 0
 chopview -a 0 -c "" -k 1 -m 1 -b 1 -e 1 -f 0 -g 0 -H 1 -i 0 -j 1 -l 0 -n 1 -V 0 -y 0 -B 0 -s 0 -S 0.034375 -u 0 -v 0 -h -10 310 -r -1.5 1.5 panetab15
 ropview -c 0 panetab18
 pythonpanel -s on -t off -n taskgraphtable panetab26
-networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.0",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"showdep":"0",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"palettemode":"0",\n	"gridmode":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 543.900000 68.100000",\n	"perfstatname":"Time",\n	"palettesize":"187 187",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"0"\n}\n' panetab27
-networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.0",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"showtree":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"typesidebarsplit":"0.25",\n	"showdep":"0",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"treesplit":"0.25",\n	"palettemode":"0",\n	"gridmode":"0",\n	"showgrouplist":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 543.900000 68.100000",\n	"perfstatname":"Time",\n	"palettesize":"187 187",\n	"grouplistsplit":"0.75",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"0",\n	"showtypesidebar":"0"\n}\n' panetab28
+networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.0",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"showdep":"0",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"palettemode":"0",\n	"gridmode":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 185.267144 16.247918",\n	"perfstatname":"Time",\n	"palettesize":"187 187",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"0"\n}\n' panetab27
+networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.0",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"showtree":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"typesidebarsplit":"0.25",\n	"showdep":"0",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"treesplit":"0.25",\n	"palettemode":"0",\n	"gridmode":"0",\n	"showgrouplist":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 185.267144 16.247918",\n	"perfstatname":"Time",\n	"palettesize":"187 187",\n	"grouplistsplit":"0.75",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"0",\n	"showtypesidebar":"0"\n}\n' panetab28
 netcolumns -c display,xray,select,origin,capture,bone -n OBJ panetab28
 netcolumns -c display,render,template,selectabletemplate,highlight,unload,bypass,lock -n SOP panetab28
 netcolumns -c delscript,comment -n CHOPNET panetab28
@@ -119,7 +119,7 @@ performance -c on -d on -f on -g off -j on -k on -m off -n on -o on -t off -v on
 ropview -c 0 panetab17
 geospreadsheet -c 0 -l horizontal -s 0.5 -m none -f 0 panetab5
 scenegraphtree -S 0.25 -m 2 -p "/collections /lights" -c  -i  -o  -x 1 -s 1 -M 0 -C primtype,descendants,kind,populated,loaded,activation,visibility,solo,selectability  panetab5
-networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.0",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"showtree":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"typesidebarsplit":"0.25",\n	"showdep":"0",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"treesplit":"0.25",\n	"palettemode":"0",\n	"gridmode":"0",\n	"showgrouplist":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 74.760190 110.833289",\n	"perfstatname":"Time",\n	"palettesize":"187 187",\n	"grouplistsplit":"0.75",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"0",\n	"showtypesidebar":"0"\n}\n' panetab23
+networkeditor -p '{\n	"taskgraphcollapsemode":"Off",\n	"backgroundimageediting":"0",\n	"gridxstep":"2.0",\n	"overviewmode":"2",\n	"workitemattrtocollapseby":"",\n	"showparmdialogmax":"1",\n	"showtaskgraphperf":"0",\n	"palettecolors":"",\n	"showtree":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"showspareinputdep":"1",\n	"taskgraphperfstatname":"Cook Time",\n	"showmenu":"1",\n	"taskgraphsortdirection":"0",\n	"typesidebarsplit":"0.25",\n	"showdep":"0",\n	"showtasksmenu":"1",\n	"showcopsmenu":"1",\n	"treesplit":"0.25",\n	"palettemode":"0",\n	"gridmode":"0",\n	"showgrouplist":"0",\n	"gridystep":"1.0",\n	"showperfstats":"1",\n	"overviewbounds":"0.000000 0.000000 214.500000 313.200000",\n	"perfstatname":"Time",\n	"palettesize":"187 187",\n	"grouplistsplit":"0.75",\n	"showchilddep":"1",\n	"backgroundimagebrightness":"1.0",\n	"workitemcolorattribute":"",\n	"useworkitemcolorattribute":"0",\n	"showtypesidebar":"0"\n}\n' panetab23
 netcolumns -c display,xray,select,origin,capture,bone -n OBJ panetab23
 netcolumns -c display,render,template,selectabletemplate,highlight,unload,bypass,lock -n SOP panetab23
 netcolumns -c delscript,comment -n CHOPNET panetab23
