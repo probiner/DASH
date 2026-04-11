@@ -9,6 +9,7 @@
     <memberTool name="DASH-delete"/>
     <memberTool name="DASH-attibwrangle_color"/>
     <memberTool name="notes_clipboard_io"/>
+    <memberTool name="helpwiki_starter"/>
   </toolshelf>
 
   <tool name="DASH-delete" label="Delete Parm Channels" icon="BUTTONS_clear">
@@ -116,5 +117,56 @@ from DASH_hom import DASH_nodeutils as tool
 importlib.reload(tool)
 
 tool.sticky_notes_io()]]></script>
+  </tool>
+
+  <tool name="helpwiki_starter" label="Helpwiki Starter" icon="SOP_script">
+    <helpText><![CDATA[= Helpwiki Starter =
+#icon: SOP/script
+""" Creates Houdini Help markup from a template. Fill out the appropriate information. """
+
+The template is as following:
+
+{{{
+
+#icon page property based on asset name
+
+= Title based on asset label =
+
+"""Quick asset description."""
+
+== Overview ==
+
+@inputs
+...
+
+@parameters
+...
+
+@outputs
+...
+
+}}}
+
+For VOPs, parameters of different signatures are bundled together.
+{{{
+Value:
+    #id: value
+    #id: value_u0
+    #id: value_v0
+    #id: value_p0
+    Description for Value
+}}}]]></helpText>
+    <script scriptType="python"><![CDATA[import importlib
+from DASH_hom import DASH_nodeutils as tool
+importlib.reload(tool)
+
+help = tool.createNodeHelp()
+#print (help)
+hou.ui.copyTextToClipboard(help) # put it in the clipboard
+
+
+
+
+]]></script>
   </tool>
 </shelfDocument>
