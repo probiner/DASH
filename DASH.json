@@ -1,9 +1,7 @@
 {
-    "load_package_once" : true,
-    "enable" : true,
 	"env": [
                 {
-                    "DASH": "${HOUDINI_PACKAGE_PATH}/DASH"
+                    "DASH": "C:/path/to/DASH"
                 }
 	],
 	"path": [
