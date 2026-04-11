@@ -59,7 +59,6 @@ def delete_parm_channels(sel=None, defaults=None):
             if revert_defaults:
                 parm.revertToDefaults()
 
-
 def sticky_notes_io():
     """
     Export and Import of sticky notes text. Original purpose: Spell/Grammer check them.
@@ -145,3 +144,166 @@ def sticky_notes_io():
         if failedpaths:
             failedpathstext = "\n".join(failedpaths)
             print("INFO IN IMPORT FOR NONEXISTING STICKIES:\n" + failedpathstext)
+
+def createNodeHelp():
+    """
+    Create Houdini Help markup from a template. Fill out the appropriate information.
+    """
+    def nQuot(amount):
+        return "\""*amount
+            
+    def nEqls(amount):
+        return "="*amount
+
+    def nLine(amount):
+        return "\n"*amount
+
+    def nSpace(amount):
+        return " "*amount
+
+    # Template generator for a particular ParmTemplateGroup
+    def allParmTemplates(group_or_folder, multiparm = None):
+        if multiparm == None: multiparm = 1
+        for parm_template in group_or_folder.parmTemplates():
+            yield parm_template
+
+            if(multiparm) :
+                if (parm_template.type() == hou.parmTemplateType.Folder):
+                    for sub_parm_template in allParmTemplates(parm_template):
+                        yield sub_parm_template
+            else:
+                if (parm_template.type() == hou.parmTemplateType.Folder and
+                parm_template.isActualFolder()):
+                    for sub_parm_template in allParmTemplates(parm_template):
+                        yield sub_parm_template
+
+    # Build Parameter template text helper.
+    def parmTempHelp(parmTemp, siblings=None):
+        """Creates wiki text for both single and menu parameters."""
+        arg_default(siblings,"") 
+        help = parmTemp.label() + ":\n"
+        help += siblings
+        help += nSpace(4) + "#id: " + parmTemp.name() + "\n"
+        help += nSpace(4) + "Description for " + str(parmTemp.label()) + nLine(1)
+        
+        if(hasattr(parmTemp, "menuLabels")):
+            parmlabels = parmTemp.menuLabels()
+            if parmlabels:
+                for label in parmlabels:
+                    help += nLine(1) + nSpace(4) + label + ":" + nLine(1)
+                    help += nSpace(8) + "Menu option description." + nLine(1)
+        help += nLine(1)
+        return help
+
+    def pageicon(path):
+        """Generate icon path for #icon property from HDA definition icon path."""
+        contexts = ["OBJ_", "SOP_", "VOP_", "LOP_", "CHOP_", "COP2_", "LOP", "SHOP_", "TOP_", "ROP_"]
+        contexts_matches = [path.startswith(context) for context in contexts]
+
+        if "opdef:" in path and "?" in path:
+            path = "opdef:.?" + path.split("?")[1]
+        elif sum(contexts_matches)>0:
+            path = "/".join(path.split("_"))
+        return path
+        
+    sel = hou.selectedNodes()
+    tmpls = []
+    if(len(sel)==1):
+        node = sel[0]
+        tp = node.type()
+        df = tp.definition()
+        if df == None:
+            print("Select a HDA, please!")  # Selection is not HDA
+            return ""
+        assetname = tp.name()
+        assetnamecat = tp.nameWithCategory()
+        slashid = assetnamecat.find("/")
+        name = assetnamecat[slashid+1:]
+        name = name.split("::")[0]
+        description = tp.description().strip("- - - ") # DASH PACKAGE SPECIFIC. SHOULD NOT INTERFERE
+
+        # Asset Name, Description and Overview
+        help = ""
+        #help += "#icon: opdef:.?DASH-{op}-icon.svg".format(op=name) + nLine(1) # DASH SPECIFIC
+        help += "#icon: " + pageicon(df.icon()) + nLine(1)
+        help += nLine(1) + nEqls(1) + " " + description + " " + nEqls(1) + nLine(2)       # = Operator Name =
+        help += nQuot(3) + "Quick asset description." + nQuot(3) + nLine(2)               # """Quick asset description."""
+        help += nEqls(2) + " Overview " + nEqls(2) + nLine(2)                             # == Overview ==
+        help += "Explanation of the node's purpose and operation." + nLine(2)             #  Overview explanation
+ 
+        # Inputs
+        # FOR A VOP NODE
+        if(isinstance(node, hou.VopNode)):
+            names = node.inputNames()
+            if(names):
+                help += "@inputs" + nLine(2)
+                for name in names:
+                    help += "`" + name + "`:" + nLine(1)
+                    help += nSpace(4) + "What the input is for." + nLine(2)
+        # FOR OTHER CATEGORIES
+        else:
+            labels = node.inputLabels()
+            if(labels):
+                help += "@inputs" + nLine(2)
+                for label in labels:
+                    help += label + ":" + nLine(1)
+                    help += nSpace(4) + "What the input is for." + nLine(2)
+
+        # Parameters                                                                       # @parameters
+        group = node.parmTemplateGroup()
+        tmpls = allParmTemplates(group)
+        labels  = [tmpl.label() + "_folder" if isinstance(tmpl, hou.FolderParmTemplate) else tmpl.label() for tmpl in allParmTemplates(group)] # ADD '_folder' to label in list to guarantee disambiguation with normal parms
+        labels.append("__empty_LAST") # Add this to label list to have valid index in last entry.
+        
+        isLasts = [labels[i] != labels[i+1] for i in range(len(labels)-1)]
+
+        if group.entries() :
+            help += "@parameters" + nLine(2)
+            index = -1
+            previous = ""
+            for t in tmpls :
+                index += 1
+                if isinstance(t, hou.SeparatorParmTemplate): # Ignore Separators
+                    previous = ""
+                    continue
+
+                if isinstance(t, hou.FolderParmTemplate):
+                    fldtype = t.folderType().name()
+                    if fldtype == "MultiparmBlock" :
+                        help += parmTempHelp(t)
+                    elif fldtype == "Tabs" :
+                        help += nEqls(2) + t.label().title() + nEqls(2) + nLine(2)
+                    else:
+                        help += nEqls(3) + t.label().title() + nEqls(3) + nLine(2)
+                else:   
+                    isLast = isLasts[index]
+                    if isLast:
+                        new = parmTempHelp(t, siblings = previous)
+                        previous = ""
+                        help += new # Commit new parameter
+                    else:
+                        previous += nSpace(4) + "#id: " + t.name() + nLine(1) # add repeated
+
+        # Outputs
+        # FOR A VOP NODE                                                                             # @outputs
+        if(isinstance(node, hou.VopNode)): 
+            names = node.outputNames()
+            if(names):
+                help += "@outputs" + nLine(2)
+                for name in names:
+                    help += "`" + name + "`:" + nLine(1)
+                    help += nSpace(4) + "#id:" + name + nLine(1) 
+                    help += nSpace(4) + "What the output is for." + nLine(2)
+        # FOR OTHER CATEGORIES
+        else:                               
+            labels = node.outputLabels()
+            if(labels):
+                help += "@outputs" + nLine(2)
+                for label in labels:
+                    help += label + ":" + nLine(1)
+                    help += nSpace(4) + "What the output is for." + nLine(2)
+
+        return help
+    else:
+        print("Select a single node, please!")  # Selection is empty or with more than one node.
+        return ""
