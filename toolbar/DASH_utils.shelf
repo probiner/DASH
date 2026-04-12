@@ -7,7 +7,7 @@
 
   <toolshelf name="DASH-utils" label="DASH - - - Utils">
     <memberTool name="DASH-delete"/>
-    <memberTool name="DASH-attibwrangle_color"/>
+    <memberTool name="DASH-vopvex_color"/>
     <memberTool name="notes_clipboard_io"/>
     <memberTool name="helpwiki_starter"/>
   </toolshelf>
@@ -37,55 +37,6 @@ sel=hou.selectedNodes()
 
 defaults=False
     If set to True, it will also revert parameters to default values.
-"""
-]]></script>
-  </tool>
-
-  <tool name="DASH-attibwrangle_color" label="Color SOP Wrangles" icon="SOP_attribwrangle">
-    <helpText><![CDATA[= Color SOP Wrangles =
-#icon: SOP/attribwrangle
-
-""" Automatically color SOP wrangles according to their class. """
-
-== Overview ==
-Select Attrib Wrangles SOP and select this to change their color automatically according to class. If no node is selected, it will try to color all attrib wrangle SOPS.
-
-:fig: [Image:https://i.imgur.com/4ND7ghc.png]
-Â  Â  """Default Colors"""
-
-__`keep_color`__ is set to _True_ by default, meaning, the node color will only be changed if the node is using 0.8 white or the Houdini default color.
-:fig: [Image:https://i.imgur.com/kuLjCWD.png]
-Â  Â  """The 0.8 gray swatch will also be considered default."""
-
-For more options, check the _Script_ tab of the script.
-
-:fig: [Image:https://i.imgur.com/kJKptSM.png]
-Â  Â  """Rainbow Colors"""
-Â  Â Â ]]></helpText>
-    <script scriptType="python"><![CDATA[# COLOR ATTRIBUTE WRANGLES AUTOMATICALLY BY CLASS
-import importlib
-from DASH_hom import DASH_nodeutils as tool
-importlib.reload(tool)
-
-tool.attwrangle_color()
-
-"""
-Arguments' defaults:
-
-sel=hou.selectedNodes()
-    Will process all the selected nodes.
-
-colors=[(.55, .45, .3), (.765, 1, .576), (0.48, 0.75, 1), (0.75, 0.55, 0.95), (0.354, 0.304, 0.354)]    
-    Detail: Brown. Numbers: Pale Dark Purle. Points: Blue. Primitives: Green. Vertices: Violet.
-
-rainbow=False
-    rainbow=True will have the class colors be a rainbow hues.
-    
-keep_color=True
-    If the node already has a non default color it one has to set keep_color=False to overwrite it.
-
-comment=False
-    comment=True will have the first code line set as comment of the node if the line is a code comment //.
 """
 ]]></script>
   </tool>
@@ -167,6 +118,60 @@ hou.ui.copyTextToClipboard(help) # put it in the clipboard
 
 
 
+]]></script>
+  </tool>
+
+  <tool name="DASH-vopvex_color" label="Color SOP Wrangle/VOP" icon="SOP_attribwrangle">
+    <helpText><![CDATA[= Color SOP Wrangles =
+#icon: SOP/attribwrangle
+
+""" Automatically color SOP Attribute Wrangle/VOPs according to their class. """
+
+== Overview ==
+Select Attrib Wrangles/VOPs SOP and select this to change their color automatically according to class. If no node is selected, it will try to color all attrib wrangle/VOP SOPS.
+
+:fig: [Image:https://i.imgur.com/4ND7ghc.png]
+         """Default Colors"""
+
+__`keep_color`__ is set to _True_ by default, meaning, the node color will only be changed if the node is using 0.8 white or the Houdini default color.
+:fig: [Image:https://i.imgur.com/kuLjCWD.png]
+         """The 0.8 gray swatch will also be considered default."""
+
+For more options, check the _Script_ tab of the script.
+
+:fig: [Image:https://i.imgur.com/kJKptSM.png]
+        """Rainbow Colors"""]]></helpText>
+    <script scriptType="python"><![CDATA[# COLOR ATTRIBUTE WRANGLES AUTOMATICALLY BY CLASS
+import importlib
+from DASH_hom import DASH_nodeutils as tool
+importlib.reload(tool)
+
+tool.vopvex_color()
+
+"""
+Arguments' defaults:
+
+sel=hou.selectedNodes()
+    Will process all the selected nodes.
+
+colors=[(.55, .45, .3), (.765, 1, .576), (0.48, 0.75, 1), (0.75, 0.55, 0.95), (0.354, 0.304, 0.354)]    
+    Detail: Brown. Numbers: Pale Dark Purle. Points: Blue. Primitives: Green. Vertices: Violet.
+
+rainbow=False
+    rainbow=True will have the class colors be a rainbow hues.
+    
+keep_color=True
+    If the node already has a non default color it one has to set keep_color=False to overwrite it.
+
+comment=False
+    comment=True will have the first code line set as comment of the node if the line is a code comment //.
+    
+wrangles=True
+    wrangles=False will have Attribute Wrangles are ignored.
+
+vops=True
+    vops=False will have Attribute VOPs are ignored.
+"""
 ]]></script>
   </tool>
 </shelfDocument>
