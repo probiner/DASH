@@ -57,9 +57,23 @@ array_values_occurrence/vexpression
 
 array_filter_vex/vexpression
     [GENERIC] 50% chance of keeping the value
-    valid = random_brj(0, i) > .5 ;
+    keep = random_brj(0, i) > .5 ;
 
 array_filter_vex/vexpression
     [FLOAT] Stop after a value above 21.0
-    valid = 1 ;
+    keep = 1 ;
     poststop = value > 21.0 ;
+
+solve_seq/vexpression
+    [GENERIC] Clock's hours accumulation.
+    // Set Scan Method to Cumulative.
+    // Set identity to 0.
+
+    result = (previous + current) % 24 ;
+
+solve_seq/vexpression
+    [VECTOR] Normal from Cross Product of Adjacent Tangents.
+    // Set Scan Method to Adjacent.
+    // Set identity to 1,1,1.
+
+    result = cross(current, previous) ;
